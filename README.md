@@ -1,6 +1,17 @@
 # Company Dashboard
 
+[![Proprietary License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
+
+
 A comprehensive web dashboard for managing company operations, including clients, services, staff, payments, cheques, and logs. Built with Node.js, Express, EJS templates, and vanilla JavaScript.
+
+## Screenshots
+
+Add your project screenshots here:
+
+![Dashboard Preview](./assets/preview-dashboard.png)
+![Login Page](./assets/preview-login.png)
+![Clients Table](./assets/preview-clients.png)
 
 ## Features
 - **User Authentication**: Login/Register system
@@ -65,13 +76,29 @@ A comprehensive web dashboard for managing company operations, including clients
 ```
 
 ## Contact & Social Media
-- **GitHub**: [github.com](https://github.com/wickmrakchi)
-- **Instagram**: [instagram](https://instagram.com/@mrakchi_5)
-- **Discord**: [discord](https://discord.gg/wicks)
+- **GitHub**: [github.com/wickmrakchi](https://github.com/wickmrakchi)
+- **Instagram**: [@mrakchi_5](https://instagram.com/@mrakchi_5)
+- **Discord**: [discord.gg/wicks](https://discord.gg/wicks)
 - **Email**: [hessamgrati@gmail.com](mailto:hessamgrati@gmail.com)
 
-## License
-MIT License - feel free to use and modify.
+## License & Usage
+
+**Proprietary Software - All Rights Reserved**
+
+This Company Dashboard project is proprietary software developed by Mrakchi Service.
+
+**Strictly Prohibited Without Written Permission:**
+- Using the code in any project or product
+- Copying any part of the codebase
+- Modifying the source code
+- Distributing the software or any derivatives
+- Reselling or offering as a service
+
+Repository access does **NOT** grant any usage rights. To use this software, you must obtain explicit written permission or purchase a commercial license from the copyright holder.
+
+Unauthorized use may result in legal action.
+
+[See LICENSE file for full terms](LICENSE)
 
 ---
 
