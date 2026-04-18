@@ -55,12 +55,12 @@ A comprehensive web dashboard for managing company operations, including clients
 ## Project Structure
 ```
 .
-├── app.js              # Main Express app
+├── middleware/         # Auth middleware
 ├── models/             # Mongoose schemas
 ├── routes/             # API routes
 ├── views/              # EJS templates
 ├── public/             # Static assets (CSS/JS)
-├── middleware/         # Auth middleware
+├── app.js              # Main Express app
 └── package.json
 ```
 
