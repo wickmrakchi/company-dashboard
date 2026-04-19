@@ -9,7 +9,7 @@ A comprehensive web dashboard for managing company operations, including clients
 
 Add your project screenshots here:
 
-![Soon...(preview-dashboard.png)
+![Soon...](preview-dashboard.png)
 
 ## Features
 - **User Authentication**: Login/Register system
