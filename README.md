@@ -81,7 +81,7 @@ A comprehensive web dashboard for managing company operations, including clients
 
 **Proprietary Software - All Rights Reserved**
 
-This Company Dashboard project is proprietary software developed by Mrakchi Service.
+This Company Dashboard project is proprietary software developed by [Hamza(Mrakchi.dev)](https://mrakchi.netlify.app/).
 
 **Strictly Prohibited Without Written Permission:**
 - Using the code in any project or product
