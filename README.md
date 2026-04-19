@@ -7,8 +7,6 @@ A comprehensive web dashboard for managing company operations, including clients
 
 ## Screenshots
 
-Add your project screenshots here:
-
 ![Soon...](preview-dashboard.png)
 
 ## Features
