@@ -251,8 +251,8 @@ Built with a modern gold-themed UI, full multilingual support (French, Arabic, E
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/wickmrakchi/company-management.git
-cd company-management
+git clone https://github.com/wickmrakchi/company-dashboard.git
+cd company-dashboard
 ```
 
 ### Step 2: Install Dependencies
