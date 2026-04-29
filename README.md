@@ -4,7 +4,7 @@
 
 **A powerful, all-in-one Company Dashboard & Management System built for modern businesses.**
 
-[![Version](https://img.shields.io/badge/version-4.0.0-gold?style=for-the-badge&logo=github)](https://github.com/wickmrakchi/company-management)
+[![Version](https://img.shields.io/badge/version-4.1.0-gold?style=for-the-badge&logo=github)](https://github.com/wickmrakchi/company-management)
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4.x-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-7.x-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
@@ -45,6 +45,8 @@ Built with a modern gold-themed UI, full multilingual support (French, Arabic, E
 
 > **Version 4.0.0** — Latest stable release with enhanced staff-service-payment workflows, activity logging, and an upgraded dashboard experience.
 
+> **Version 4.1.0** — Updated release with improvements to the job type system and enhanced backend processing logic, delivering a better experience in managing staff roles.
+
 ---
 
 ## ✨ Features
@@ -66,7 +68,7 @@ Built with a modern gold-themed UI, full multilingual support (French, Arabic, E
 
 ### 👷 Staff & Workforce Management
 - Staff profiles with job type classification
-  - *Carpenter, Tapissier, Peintre, Electricien, Plombier, Other*
+- *Manager, Supervisor, Team Leader, Employee, Assistant, Technician, Engineer, Administrator, Coordinator, Specialist, Operator, Intern, Trainee, Consultant, Freelancer*
 - Status tracking: **Active** / **Inactive**
 - Location-based filtering
 
