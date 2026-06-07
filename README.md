@@ -49,8 +49,6 @@ Built with a modern gold-themed UI, full multilingual support (French, Arabic, E
 
 > **Version 4.2.0** — Major UI/UX update: global search system, dark mode support, and multiple mobile responsiveness improvements.
 
-> **Current version:** **4.2.0** (see `package.json`).
-
 ---
 
 
@@ -73,38 +71,38 @@ Built with a modern gold-themed UI, full multilingual support (French, Arabic, E
   <em>Dashboard summary cards, quick actions, recent entities, and payment status visualization.</em>
 </p>
 
-![Dashboard Overview](./public/images/dashboard-overview1.png)
-![Dashboard Overview](./public/images/dashboard-overview2.png)
+![Dashboard Overview](https://cdn.discordapp.com/attachments/1476763298325201037/1513223761288233131/image.png?ex=6a26f2f3&is=6a25a173&hm=4a0a8dd4ed4eb5b8ffc3476da072468c51e362205e6a8c6c57672e3235622c3c&)
+![Dashboard Overview](https://cdn.discordapp.com/attachments/1476763298325201037/1513223777981300786/image.png?ex=6a26f2f7&is=6a25a177&hm=d6f7c3af618012ec8cdecf8568aff405a89a251460864368e100213be913e771&)
 
 ### 💰 Cheque Management
 <p align="center">
   <em>Cheque list with filters/search and quick edit actions.</em>
 </p>
 
-![Cheques Table](./public/images/cheques-table.png)
+![Cheques Table](https://cdn.discordapp.com/attachments/1476763298325201037/1513223797853917204/image.png?ex=6a26f2fb&is=6a25a17b&hm=de7724a8e16f0937e1ee33d040cc8cae0aa756020ba8b40be68b20f0edfdcd1d&)
 
 ### 👥 Client Directory
 <p align="center">
   <em>Clients table with status, location, devis number and delivery date filtering.</em>
 </p>
 
-![Clients Table](./public/images/clients-table.png)
+![Clients Table](https://cdn.discordapp.com/attachments/1476763298325201037/1513223818917843096/image.png?ex=6a26f300&is=6a25a180&hm=0a836638587a43d31a73ac0ee2d6b4ed1616cace4befaaec01f6360c16f88509&)
 
 ### 👷 Staff Services & Payments
 <p align="center">
   <em>Staff profile details, services list and payment progress tracking per service.</em>
 </p>
 
-![Staff Services](./public/images/staff-services1.png)
-![Staff Services](./public/images/staff-services2.png)
-![Staff Services](./public/images/staff-services3.png)
+![Staff Services](https://cdn.discordapp.com/attachments/1476763298325201037/1513223842447757382/image.png?ex=6a26f306&is=6a25a186&hm=5b45809462b4046f108e35068d0e32f549b25cf8aefdb77b49b3420dc8dcd0f4&)
+![Staff Services](https://cdn.discordapp.com/attachments/1476763298325201037/1513223870814097458/image.png?ex=6a26f30d&is=6a25a18d&hm=6ed2815be9f164ac6c54f4dea6fb4f246dc89d991a6c19230be413afb81b75d9&)
+![Staff Services](https://cdn.discordapp.com/attachments/1476763298325201037/1513223883392811129/image.png?ex=6a26f310&is=6a25a190&hm=daf4bd47115dedf206e579fb0e1cee77443e4fa859e347f897ff73719fea4165&)
 
 ### 🔎 Global Search
 <p align="center">
   <em>Unified search suggestions across clients, staff, cheques and services.</em>
 </p>
 
-![Global Search](./public/images/global-search.png)
+![Global Search](https://cdn.discordapp.com/attachments/1476763298325201037/1513223894025240646/image.png?ex=6a26f312&is=6a25a192&hm=5e451bb2ed9f2238cadd8487a40616134102fd374a828ce5cc5c55e7286e82e3&)
 
 </p>
 
