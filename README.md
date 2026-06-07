@@ -95,7 +95,7 @@ Built with a modern gold-themed UI, full multilingual support (French, Arabic, E
   <em>Staff profile details, services list and payment progress tracking per service.</em>
 </p>
 
-![Staff Services](./public/images/staff-services1.png)
+![Staff Services](/public/images/staff-services1.png)
 ![Staff Services](./public/images/staff-services2.png)
 ![Staff Services](./public/images/staff-services3.png)
 
