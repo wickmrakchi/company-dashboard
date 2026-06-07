@@ -73,7 +73,8 @@ Built with a modern gold-themed UI, full multilingual support (French, Arabic, E
   <em>Dashboard summary cards, quick actions, recent entities, and payment status visualization.</em>
 </p>
 
-![Dashboard Overview](./public/images/dashboard-overview.png)
+![Dashboard Overview](./public/images/dashboard-overview1.png)
+![Dashboard Overview](./public/images/dashboard-overview2.png)
 
 ### 💰 Cheque Management
 <p align="center">
@@ -94,7 +95,9 @@ Built with a modern gold-themed UI, full multilingual support (French, Arabic, E
   <em>Staff profile details, services list and payment progress tracking per service.</em>
 </p>
 
-![Staff Services](./public/images/staff-services.png)
+![Staff Services](./public/images/staff-services1.png)
+![Staff Services](./public/images/staff-services2.png)
+![Staff Services](./public/images/staff-services3.png)
 
 ### 🔎 Global Search
 <p align="center">
