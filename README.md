@@ -43,13 +43,70 @@
 
 Built with a modern gold-themed UI, full multilingual support (French, Arabic, English), and a responsive sidebar layout, it delivers a premium user experience across all devices.
 
-> **Version 4.0.0** — Latest stable release with enhanced staff-service-payment workflows, activity logging, and an upgraded dashboard experience.
+> **Version 4.0.0** — Enhanced staff/service/payment workflows, activity logging, and an upgraded dashboard.
 
-> **Version 4.1.0** — Updated release with improvements to the job type system and enhanced backend processing logic, delivering a better experience in managing staff roles.
+> **Version 4.1.0** — Job type system improvements + backend logic upgrades for better staff role management.
 
-> **Version 4.2.0** — Major UI/UX update introducing a brand new global search system, dark mode support, and multiple mobile responsiveness improvements for a smoother experience across all devices.
+> **Version 4.2.0** — Major UI/UX update: global search system, dark mode support, and multiple mobile responsiveness improvements.
+
+> **Current version:** **4.2.0** (see `package.json`).
 
 ---
+
+
+## 🛠️ Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript, EJS, Bootstrap 5
+- **Backend:** Node.js, Express.js, Mongoose
+- **Database:** MongoDB
+- **Authentication:** Session-based authentication with bcrypt
+- **i18n:** Full support for French, Arabic, and English
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+
+### 🏠 Dashboard Overview
+<p align="center">
+  <em>Dashboard summary cards, quick actions, recent entities, and payment status visualization.</em>
+</p>
+
+![Dashboard Overview](./public/images/dashboard-overview.png)
+
+### 💰 Cheque Management
+<p align="center">
+  <em>Cheque list with filters/search and quick edit actions.</em>
+</p>
+
+![Cheques Table](./public/images/cheques-table.png)
+
+### 👥 Client Directory
+<p align="center">
+  <em>Clients table with status, location, devis number and delivery date filtering.</em>
+</p>
+
+![Clients Table](./public/images/clients-table.png)
+
+### 👷 Staff Services & Payments
+<p align="center">
+  <em>Staff profile details, services list and payment progress tracking per service.</em>
+</p>
+
+![Staff Services](./public/images/staff-services.png)
+
+### 🔎 Global Search
+<p align="center">
+  <em>Unified search suggestions across clients, staff, cheques and services.</em>
+</p>
+
+![Global Search](./public/images/global-search.png)
+
+</p>
+
+---
+
 
 ## ✨ Features
 
@@ -255,8 +312,8 @@ Built with a modern gold-themed UI, full multilingual support (French, Arabic, E
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/wickmrakchi/company-dashboard.git
-cd company-dashboard
+git clone https://github.com/wickmrakchi/company-management.git
+cd company-management
 ```
 
 ### Step 2: Install Dependencies
@@ -336,11 +393,13 @@ company-management/
 │   └── User.js             # User schema with bcrypt
 │
 ├── routes/
-│   ├── auth.js             # Authentication routes
-│   ├── cheques.js          # Cheque CRUD routes
+│   ├── auth.js             # Authentication (login/logout)
+│   ├── cheques.js          # Cheque CRUD routes + dashboard aggregation
 │   ├── clients.js          # Client CRUD routes
-│   ├── logs.js             # Activity log routes
-│   └── staffs.js           # Staff, Service & Payment routes
+│   ├── staffs.js           # Staff + Services + Payments routes
+│   ├── logs.js             # Activity logs
+│   ├── search.js           # Global search API + search results
+
 │
 ├── views/
 │   ├── layout.ejs          # Main dashboard layout (sidebar)
@@ -362,12 +421,24 @@ company-management/
 │   ├── logs.ejs            # Activity logs view
 │   └── register.ejs        # Registration form
 │
+├── config/
+│   └── constants.js         # Centralized job types/constants
+│
+├── middleware/
+│   └── auth.js             # Authentication middleware
+│
+├── scripts/
+│   └── migrate-job-types.js # One-time job type migration helper
+│
 └── public/
     ├── css/
     │   └── style.css         # Custom styles
+    ├── images/              # Dashboard images (screenshots)
     └── js/
         ├── i18n.js           # Internationalization engine
-        └── script.js         # Main frontend scripts
+        ├── script.js         # Main frontend UI logic
+        └── search-autocomplete.js # Global search autocomplete
+
 ```
 
 ---
