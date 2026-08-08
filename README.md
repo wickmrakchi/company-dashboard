@@ -1,7 +1,8 @@
-# Ouaoua Decor v5.8.1 — Décor Management System
+# Company Manager v5.10.2 — Business Management System
 
-> A full-stack ERP platform for managing a décor business: clients, services, cheques, payments, staff, and notifications.
+> A full-stack ERP platform for managing a business: clients, cheques, services, payments, staff, and notifications.
 > Built with **Node.js + Express + MongoDB + EJS**, supporting **Arabic 🇸🇦 · French 🇫🇷 · English 🇺🇸**, **Dark/Light mode**, and a custom **Cheque Reminder System** with email alerts.
+> 💡 **Sellable to any company** — the system ships with a décor-business template, but can be customized and white-labeled for any type of business.
 
 ---
 
@@ -29,12 +30,22 @@
 
 ## 🚀 About the Project
 
-**Ouaoua Decor v5.8.1** is a complete management system (ERP) for décor companies and shops. It enables client registration, service tracking, payment & cheque management, employee administration, and real-time reporting — all in a branded, gold-accented interface.
+**Company Manager v5.10.1** is a complete, production-ready management system (ERP) for any business. It enables client registration, service tracking, payment & cheque management, employee administration, and real-time reporting — all in a branded, gold-accented interface.
+
+The system ships with a **décor-business template** (fields, job types, statuses and screens tuned for décor/design companies), but it is **not limited to décor**. The same core — clients, cheques, payments, services, staff, notifications and reports — powers any company.
+
+### 🎯 Any Company — Customizable
+- The project is licensed **for sale to any company**: retail, services, construction, real estate, agencies, ateliers, clinics, and more.
+- Each client receives a **white-label copy**: their logo, their name, their language, and their own modules.
+- Customization is quoted **per project by the developer** — the base price covers the standard system, and any additional/adapted module (custom fields, extra reports, integrations, branding) changes the price accordingly.
+- Buyers can purchase an **annual subscription license** or, on request, **full ownership rights** to the source code.
 
 ### Target Audience
-- Décor companies and design offices
+- **Any business or company** that needs to manage clients, payments and staff in one system
+- Décor companies and design offices *(default template)*
 - Furniture and home furnishing stores
 - Interior design contractors
+- Retail, services and project-based companies looking for a ready ERP base
 
 ### Why This System?
 - **Fully Cloud** — Runs on MongoDB Atlas, no local server required
@@ -66,19 +77,21 @@
 - **Pending-cheque badge** in the sidebar nav (live counter)
 
 ### ⏰ Cheque Reminder System (v5.x)
-- **Automated daily scan** at `REMINDER_HOUR` (default 09:00) via `node-cron`
+- **Automated scan** via `node-cron` — daily at `REMINDER_HOUR` (default 09:00) **or** every N minutes with `REMINDER_INTERVAL_MINUTES`
 - Looks at **Pending** cheques due within **0–3 days**
 - **In-app notifications** for all active admins (danger = ≤1 day, warning = 2–3 days)
 - **HTML email alerts** through Brevo SMTP — color-coded by urgency:
   - 🔴 Due today / tomorrow — red
   - 🟠 Due in 2 days — orange
   - 🟡 Due in 3 days — amber
+- **Emails go to the active admin accounts' emails** — automatically read from users with the `admin` role (falls back to `NOTIFY_EMAIL` only if no admin has an email)
 - **Deduplication** — each cheque+due-date reminder is sent only once (persisted `key` field)
-- Email includes payee, amount, number, type, status and a direct link to the cheque list
+- One email per cheque — includes payee, amount, number, type, status and a button that opens the **cheque's own edit page**
 
 ### 👥 Client Management
 - Add, edit, delete clients
 - Fields: name, location, phone, email, description, **devis number**, delivery date, notes, status
+- **Profit Amount (DH)** — the amount the client will pay
 - **File attachments** — up to 5 uploads per client (JPEG/PNG/GIF/WebP, max 5MB each)
 - Statuses: `pending` / `in progress` / `delivered`
 - Paginated table with filters (status, search, location, devis, delivery date range)
@@ -86,6 +99,9 @@
 ### 🛠️ Service Management (per staff member)
 - Add services to any staff member using a **client dropdown** (auto-fills phone)
 - Fields: client, job type, description, total amount, dates, status
+- **Employee Amount (DH)** — the employee's share; a red warning appears if it exceeds the total amount, showing the exact excess
+- **Auto-fill from client** — selecting a client fills the phone and the Total Amount from the client's Profit Amount (in add and edit forms)
+- **Inactive staff guard** — services cannot be added for a staff member whose status is `Inactive` (Add button hidden + route guard)
 - Statuses: `en attente` / `en cours` / `delivery` / `paid`
 - Paid/remaining balances computed live from linked payments
 
@@ -93,6 +109,7 @@
 - Record payments against any service (amount, date, method, notes)
 - Service status auto-updates: full payment → `paid`, partial → `en cours`
 - Full payment history per service
+- **Overpayment protection** — paying more than the remaining balance triggers a confirmation modal plus an **email OTP** (6-digit code, 10-minute expiry, resend option) before the payment is recorded
 
 ### 👨‍💼 Staff Management
 - Add, edit, delete staff members (job types, salary, hire date, location, status)
@@ -101,10 +118,17 @@
 
 ### 🔔 Notifications
 - Auto-generated on every create/update/delete/status action
+- **Deep links** — every notification opens the exact page (edit a cheque/client, view a staff/service, add a payment) via an "Open" button
 - **Unread badge** on the topbar bell + **pending-cheques badge** in the sidebar
 - **Live polling every 30 seconds** — new notifications trigger a toast
 - Dedicated notifications page with mark-as-read and mark-all-read
 - Last 50 notifications shown, newest first
+
+### 📝 Activity & Security Logs
+- **`logs/logweb.log`** — every request (method, path, status, duration, IP, browser, user)
+- **`logs/security.log`** — login success/failure, logout, registration, CSRF rejections, rate-limit hits, cheque reminders, payment OTP events
+- **Real client IP** — local machine resolves the public IP via `api.ipify.org`; browser/OS detected via `express-useragent`
+- **Old/New change diff** — edit actions log the previous vs. new values; the logs page renders a green/red diff for edits and a data grid for creates
 
 ### 🔍 Search
 - Global autocomplete across clients, staff, services, cheques
@@ -185,7 +209,7 @@
 ### 1. Clone the repository
 ```bash
 git clone <repository-url>
-cd "Ouaoua New Version App"
+cd "company-management"
 ```
 
 ### 2. Install dependencies
@@ -200,7 +224,7 @@ Create a `.env` file in the root directory:
 # Server
 PORT=9001
 SESSION_SECRET=your-secret-key-change-this-in-production
-MONGODB_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/ouaoua_new
+MONGODB_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/company_manager
 NODE_ENV=development
 
 # Email (Brevo SMTP)
@@ -211,9 +235,10 @@ SMTP_PASS=your-brevo-smtp-key
 SENDER_EMAIL=from@example.com
 
 # Cheque reminder scheduler
+# REMINDER_INTERVAL_MINUTES=10     # optional: run every N minutes instead of daily
 REMINDER_HOUR=9
 APP_BASE_URL=http://localhost:9001
-# Recipient for reminder emails (optional; defaults to admin users' emails)
+# Fallback recipient only (default: sends to active admin users' emails)
 NOTIFY_EMAIL=finance@example.com
 ```
 
@@ -257,9 +282,11 @@ npm run test-email someone@x.com   # or a specific address
 ```
 
 ### Reminder scheduler
-- Runs **hourly** (`node-cron`) but only performs the daily scan when the hour matches `REMINDER_HOUR` (default `9`).
+- **Two modes** via `node-cron`:
+  - `REMINDER_INTERVAL_MINUTES` set (e.g. `10`) → runs every N minutes
+  - otherwise → runs once daily at `REMINDER_HOUR` (default `9`)
 - On startup it also runs once immediately.
-- Sends to `NOTIFY_EMAIL` if set, otherwise to all active admins' emails.
+- **Recipients are the active admin accounts' emails** (`role: admin` + `isActive: true`) — `NOTIFY_EMAIL` is only used as a fallback when no admin has an email set.
 - Deduplicated per cheque + due date — safe to restart the server repeatedly.
 
 ---
@@ -267,7 +294,7 @@ npm run test-email someone@x.com   # or a specific address
 ## 📁 Project Structure
 
 ```
-Ouaoua New Version App/
+company-management/
 ├── app.js                        # Entry point (express setup, rate limits, scheduler)
 ├── package.json
 ├── .env                          # Environment variables (gitignored)
@@ -312,6 +339,9 @@ Ouaoua New Version App/
 │   ├── mailer.js                 # Brevo transport + HTML email templates
 │   └── chequeReminder.js         # cron scheduler + reminder logic
 │
+├── utils/
+│   └── logger.js                 # logweb.log + security.log (IP, browser, events)
+│
 ├── views/
 │   ├── layout.ejs                # sidebar, topbar, badges, csrf bridge
 │   ├── login.ejs / register.ejs  # standalone (custom layout)
@@ -323,7 +353,7 @@ Ouaoua New Version App/
 │   ├── clients/ (list, add, edit)
 │   ├── staffs/  (list, add, edit, services)
 │   ├── services/ (add, edit)
-│   └── payments/ (add)
+│   └── payments/ (add, otp)
 │
 ├── public/
 │   ├── css/style.css             # gold design system, RTL, responsive
@@ -351,21 +381,22 @@ Ouaoua New Version App/
 
 ## 🗄️ Database
 
-### MongoDB Atlas — Ouaoua New
+### MongoDB Atlas — Company Manager
 
 #### Collections
 
 | Collection | Key Fields |
 |------------|------------|
 | `users` | username, email, password (bcrypt), role, avatar, isActive, lastLogin |
-| `clients` | name, location, phone, email, description, devisNumber, deliveryDate, status, attachments |
+| `clients` | name, location, phone, email, description, devisNumber, deliveryDate, status, profitAmount, attachments |
 | `cheques` | name, amount, number (unique), type, date, deliveryDate, status, notificationsEnabled |
-| `services` | staffId, clientName, clientPhone, jobType, description, totalAmount, date, deliveryDate, status |
+| `services` | staffId, clientName, clientPhone, jobType, description, totalAmount, employeeAmount, date, deliveryDate, status |
 | `payments` | serviceId, amount, date, method, notes |
 | `staffs` | name, phone, email, location, jobType, salary, hireDate, status |
 | `notifications` | user, type, title, message, link, key, isRead |
 | `logs` | user, action, collection, documentId, details |
 | `sessions` | connect-mongo session store |
+| `logweb.log` / `security.log` | files in `logs/` — request + security event logging |
 
 ---
 
@@ -419,10 +450,10 @@ Ouaoua New Version App/
 ### Services & Payments (nested, auth)
 | Method | Path | Roles |
 |--------|------|-------|
-| GET/POST | `/staffs/:staffId/services/new` → `/staffs/:staffId/services` | All |
+| GET/POST | `/staffs/:staffId/services/new` → `/staffs/:staffId/services` | All (guarded: inactive staff redirected) |
 | GET/PUT | `/staffs/:staffId/services/:serviceId/edit` → `...` | All |
 | DELETE | `/staffs/:staffId/services/:serviceId` | admin, manager |
-| GET/POST | `/staffs/:staffId/services/:serviceId/payments/new` → `.../payments` | All |
+| GET/POST | `/staffs/:staffId/services/:serviceId/payments/new` → `.../payments` | All (overpay requires email OTP) |
 | DELETE | `/staffs/:staffId/services/:serviceId/payments/:paymentId` | All |
 
 ### Search & API (auth)
@@ -584,8 +615,9 @@ Edit `public/js/i18n.js` — add your translations to the three language objects
 4. Create the EJS template in `views/`
 
 ### Scheduler notes
-- Reminder hour is controlled by `REMINDER_HOUR` in `.env`
-- The scheduler runs immediately on boot, then once daily at the configured hour
+- Reminder interval/hour are controlled by `REMINDER_INTERVAL_MINUTES` / `REMINDER_HOUR` in `.env`
+- With `REMINDER_INTERVAL_MINUTES` set, the scheduler runs every N minutes; otherwise once daily at `REMINDER_HOUR`
+- The scheduler runs immediately on boot
 
 ---
 
@@ -620,6 +652,41 @@ Dark by default with a gold accent (`--gold: #d4a44a`); light mode via a CSS cla
 ---
 
 ## 📝 Changelog
+
+### v5.10.1 (August 2026)
+
+**New feature:**
+- **Maintenance page** — a protected `/soon` page using the app's layout, style and translations (replaces the old standalone `soon.html`)
+
+**Bug fixes & improvements:**
+- **Payment page redesign** — the payment method dropdown is fully translated (fr/ar/en) and opens **upward** on the payment form so no option gets cut off by the card below
+- **Fully paid services** — the "New Payment" form is now hidden when the service's remaining balance is 0; only the success alert and payment history are shown
+- **Back to Services button moved** — now sits beside the "Export PDF" button in the page header instead of below the form
+- **OTP hint translation** — the overpayment hint on the verification page is now rendered from the single `i18n.js` source after scripts load, always matching the current interface language (fr/ar/en) on first paint and on live language switch
+- **OTP countdown timer** — a dynamic "time remaining" pill (10:00 → 9:59 → …) counts down from the real server-side expiry; turns amber under 1 minute and red at 00:00 with a translated "code expired" resend message
+- **Auto-fill from client profit** — adding/editing a service auto-fills the phone and total amount from the selected client's profit amount
+- **Employee amount warning** — when the paid amount exceeds the employee's amount, the warning now shows the excess: "Excédent : X DH"
+- **Duplicate client status select removed** — fixed `Cast to string failed` error when editing a client
+
+### v5.9.0 (August 2026)
+
+**New Features:**
+- **Notification deep links** — every notification opens the exact page (cheque edit, client edit, staff view, service edit, payment form) via an "Open" button on the notifications page
+- **Old/New change diff** — create actions log the new data and edit actions log the previous vs. new values; the logs page shows a green/red diff
+- **`logs/logweb.log` + `logs/security.log`** — full request logging (method, path, status, duration, IP, browser, user) and security event logging (login success/failure, logout, registration, CSRF rejections, rate-limit hits, cheque reminder runs, payment OTP events); real IP resolved for local connections
+- **Client Profit Amount** — new `profitAmount` field on clients (amount the client will pay)
+- **Service Employee Amount** — new `employeeAmount` field with a live red warning when it exceeds the total amount
+- **Inactive staff guard** — adding a service for an `Inactive` staff member is blocked (route redirect + hidden button)
+- **Overpayment protection** — paying above the remaining balance shows a confirmation modal and requires a **6-digit email OTP** (10-minute expiry, resend option) before recording
+- **Configurable reminder interval** — `REMINDER_INTERVAL_MINUTES` in `.env` lets the cheque scheduler run every N minutes instead of only daily at `REMINDER_HOUR`
+- **Reminder emails → admin accounts** — cheque reminder emails now go to the active admin users' emails automatically (`NOTIFY_EMAIL` only as fallback)
+- **Datepicker fix** — the popup calendar renders above the sticky navbar (fixed positioning, closes on outside click)
+
+**Bug Fixes:**
+- Fixed `Cast to string failed for value [ 'pending', 'pending' ]` — duplicate `status` select removed from the client edit form
+- Fixed `resent is not defined` / `error.forEach is not a function` — OTP view renders cleanly (renamed conflicting `error` local)
+
+---
 
 ### v5.8.1 (August 2026)
 
@@ -660,10 +727,12 @@ Dark by default with a gold accent (`--gold: #d4a44a`); light mode via a CSS cla
 
 ## 📄 License
 
-**All Rights Reserved © Ouaoua Decor** — This system is proprietary software for Ouaoua Décor store. Redistribution or resale is not permitted without written authorization.
+**All Rights Reserved © Company Manager** — This system is proprietary software. Redistribution or resale is not permitted without written authorization.
+
+**Commercial availability** — This project is offered for sale to any company. Buyers can license it under an **annual subscription** (with setup, updates and support) or purchase **full ownership rights** on request. Each deployment can be **customized and white-labeled** for the buyer's business; the final price is quoted by the developer based on the scope of customization.
 
 ---
 
-> **Version:** 5.8.1
+> **Version:** 5.10.1
 > **Last updated:** August 2026
 > **Built with ❤️ using Node.js + MongoDB**
