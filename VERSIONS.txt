@@ -1,0 +1,26 @@
+Company Manager — Release Versions
+===================================
+
+Version 5.0.0 — Complete rewrite of the management platform with a modern gold-accented dashboard, role-based access (Admin / Manager / Employee), and full workflows for clients, cheques, staff, services and payments.
+
+Version 5.1.0 — Enhanced dashboard statistics with live overview widgets, an activity log view, and an in-app notification center with mark-as-read and mark-all-read actions.
+
+Version 5.2.0 — Security hardening release adding per-session CSRF token protection on all forms, improved session handling, and cleaner environment configuration.
+
+Version 5.3.0 — Fully responsive redesign covering desktop, tablet and mobile with polished error handling and smoother interactions across all screens.
+
+Version 5.4.0 — Service and payment workflow refinements: client selection in service forms, full payment history per service, and automatic status updates when payments are recorded.
+
+Version 5.5.0 — Performance and UX polish with rate limiting, user registration flow, a search results page, and general backend stability improvements.
+
+Version 5.6.0 — Introduced the automated cheque reminder system: scheduled email and in-app alerts for upcoming cheques, powered by node-cron and SMTP.
+
+Version 5.7.0 — Full internationalization (i18n): Arabic (RTL), French and English with a flag-based language selector, locale-aware date formatting, and light mode as default with a dark mode toggle.
+
+Version 5.8.1 — Fixed PDF export crashes with centralized page numbering across all branded reports, plus a new bulk seed generator (300 clients / 60 staff / 800 cheques / 1200+ services) for large-scale testing.
+
+Version 5.9.0 — Major feature release: notification deep links, old/new change diff logs, request and security logging, client profit amounts, employee amount validation with live warnings, inactive staff guard, overpayment protection with email OTP, configurable reminder intervals, and reminder emails routed to admin accounts.
+
+Version 5.10.1 — Maintenance page, redesigned payment page with translated method dropdown, hidden payment form for fully paid services, dynamic OTP countdown timer, auto-fill from client profit, employee amount excess warning, and multiple bug fixes.
+
+Version 5.10.2 — Maintenance page and OTP verification enhancements with additional bug fixes for a smoother experience across all devices.
